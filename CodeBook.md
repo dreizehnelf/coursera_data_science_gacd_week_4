@@ -30,7 +30,7 @@ For the base dataset (`dist/dataset.txt`):
 
 - The subject IDs have been inlined as `iSubjectId` integer column
 - The activity labels have been denormalised and also inlined as `cActivity` character column
-- The feature labels have been inlined as column headers (with cleanup of unsupported column namen characters like "(", ")" and "," to simple "." characters.)
+- The feature labels have been inlined as column headers (with cleanup of unsupported column namen characters like `(`, `)` and `,` to simple `.` characters.)
 - The original huge feature vector has been cut down to the following original fields (only the `*-mean()*` and `*-std()*` features - please see `features_info.txt` in the original documentation for more info.):
 
 	1. tBodyAcc-mean()-X
