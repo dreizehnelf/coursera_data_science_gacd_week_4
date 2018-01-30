@@ -173,6 +173,7 @@ Another dataset has been created with breakouts of the feature averages by test 
 
 - It contains one row for each subject/activity pair
 - All feature columns (from columns 3 on) contain the average of the features for all observations with the subject/activity pair in the base dataset
+- The columns names have been left as in `dataset.txt` to allow for easy cross referencing
 
 For any other information on the dataset/features (including additional notes, license, etc.), please refer to the original documentation.
 
