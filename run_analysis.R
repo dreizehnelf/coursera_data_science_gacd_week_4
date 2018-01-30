@@ -13,6 +13,7 @@ MEASUREMENTS_DATA_FILE_TEMPLATE <- "%s/%s/X_%s.txt";
 ACTIVITY_DATA_FILE_TEMPLATE <- "%s/%s/y_%s.txt";
 
 CLEANED_DATASET_EXPORT_FILE <- "dist/dataset.txt";
+AVERAGES_DATASET_EXPORT_FILE <- "dist/averages.txt";
 
 # check, if the data directory exists
 is_base_dataset_available <- function() {
@@ -139,6 +140,13 @@ get_measurements <- function(mode="train") {
   
 }
 
+get_all_measurements <- function() {
+  train_measurements <- get_measurements("train");
+  test_measurements <- get_measurements("test");
+  
+  return(rbind(train_measurements, test_measurements));
+}
+
 save_data <- function(data, file) {
   
   # create directories if not present
@@ -151,12 +159,40 @@ save_data <- function(data, file) {
   write.table(data, file, sep="\t", row.names=FALSE);
 }
 
+load_or_generate_dataset <- function() {
+  if(!file.exists(CLEANED_DATASET_EXPORT_FILE)) {
+    print("Tidy dataset does not exist yet, generating it...");
 
-# download the file if necessary
-download_and_extract_file();
+    # download the file if necessary
+    download_and_extract_file();
+    
+    # do our clean up stuff
+    measurements <- get_all_measurements();
+    
+    # save the dataset for later reference
+    save_data(measurements, CLEANED_DATASET_EXPORT_FILE);
+    
+    # return the dataset for further processing
+    return(measurements);
+  } else {
+    print("Tidy dataset already exists. Skipping generation.");
+    return(read.table(CLEANED_DATASET_EXPORT_FILE, sep="\t", header=TRUE));
+  }
+}
 
-# load measurements
-measurements <- get_measurements();
-save_data(measurements, CLEANED_DATASET_EXPORT_FILE);
+create_averages_dataset <- function(measurements) {
+  # convert our dataset to data.table, so we can easily do the groupings
+  tidy_data <- data.table(load_or_generate_dataset());
+  
+  # make use of data.table's excellent grouping feature as well as the
+  # special .SD symbol (see ?data.table for more info about it...)
+  means_by_subject_and_activity <- as.data.frame(tidy_data[,lapply(.SD, mean), by=list(iSubjectId, cActivity)])
 
+  # save the dataset for later reference
+  save_data(means_by_subject_and_activity, AVERAGES_DATASET_EXPORT_FILE);
+
+  return(means_by_subject_and_activity);
+}
+
+create_averages_dataset();
 
