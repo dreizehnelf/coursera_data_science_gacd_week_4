@@ -13,7 +13,7 @@ _(done automatically by executing the `run_analysis.R` script)_
 
 3. Save the new dataset to `dist/dataset.txt` (see `CodeBook.md` for description of the file format and on how to load the data again.)
 
-4. Create a new dataset averaging the different features by test subject and activity (by applying the R's `mean` function)
+4. Create a new dataset averaging the different features by test subject and activity (by applying the R's `mean` function, see `run_analysis.R` for the exact R code.)
 
 5. Save the new dataset to `dist/averages.txt` (using the same file format)
 
