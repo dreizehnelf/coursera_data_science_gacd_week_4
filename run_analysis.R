@@ -194,5 +194,10 @@ create_averages_dataset <- function(measurements) {
   return(means_by_subject_and_activity);
 }
 
-create_averages_dataset();
+dataset <- create_averages_dataset();
+print(sprintf(
+  "Done. You can find the new datasets at '%s' and '%s'.",
+  CLEANED_DATASET_EXPORT_FILE,
+  AVERAGES_DATASET_EXPORT_FILE
+));
 
