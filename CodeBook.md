@@ -1,12 +1,9 @@
-==================================================================
-Simplified Human Activity Recognition Using Smartphones Datasets
-Version 1.0
-==================================================================
-Michael Hengherr
-michael@hengherr.de
-==================================================================
+# Simplified Human Activity Recognition Using Smartphones Datasets
 
-This dataset is based on:
+## Version 1.0
+Michael Hengherr (michael@hengherr.de)
+
+## This dataset is based on
 
 Human Activity Recognition Using Smartphones Dataset
 Version 1.0
@@ -15,9 +12,7 @@ Most of the data has been taken as it was in the original dataset and informatio
 data can be obtained from [http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones] or after running the `run_analysis.R` script in
 the created `UCI HAR Dataset` directory which then contains the original downloaded data.
 
-==================================================================
-Modifications to the original data:
-==================================================================
+## Modifications to the original data
 
 The original records include:
 
@@ -181,9 +176,8 @@ Another dataset has been created with breakouts of the feature averages by test 
 
 For any other information on the dataset/features (including additional notes, license, etc.), please refer to the original documentation.
 
-==================================================================
-Data format:
-==================================================================
+
+## Data format
 
 Both datasets in the `dist` folder (after running `run_analysis.R`) are *tab delimited* text files.
 
