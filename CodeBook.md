@@ -28,6 +28,7 @@ Therefore these simplified datasets provide the following modifications:
 
 For the base dataset (`dist/dataset.txt`):
 
+- The `train` and `test` data have been merged into a single dataset
 - The subject IDs have been inlined as `iSubjectId` integer column
 - The activity labels have been denormalised and also inlined as `cActivity` character column
 - The feature labels have been inlined as column headers (with cleanup of unsupported column namen characters like `(`, `)` and `,` to simple `.` characters.)
