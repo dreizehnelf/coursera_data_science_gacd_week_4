@@ -9,7 +9,7 @@ _(done automatically by executing the `run_analysis.R` script)_
 
 1. Download and extract the data from [https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip] into the root of the repository directory (will create a `UCI HAR Dataset` directory). This step will be skipped by the script if the directory already exists.
 
-2. Apply a couple of denormalisations and inlines as well as some filtering to make the original data more accessible (see `CodeBook.md` or even `run_analysis.R` for more details on the operations performed.)
+2. Apply a couple of denormalisations and inlines as well as some filtering (while combining the `train` and `test` datasets into one single dataset) to make the original data more accessible (see `CodeBook.md` or even `run_analysis.R` for more details on the operations performed.)
 
 3. Save the new dataset to `dist/dataset.txt` (see `CodeBook.md` for description of the file format and on how to load the data again.)
 
